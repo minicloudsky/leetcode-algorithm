@@ -13,3 +13,18 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+
+*.bat
+*.bak
+*.tar
+*.gz
+*.iml
+tmp/*
+logs/*.log
+.idea/
+vendor/
+.logs/*
+.vscode/
+logs/
+.DS_Store

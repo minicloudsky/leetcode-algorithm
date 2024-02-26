@@ -1,7 +1,43 @@
 package linkedlist
 
-// ReverseList 遍历一遍节点存下来，重建链表
+// ReverseList 迭代法: 记录前一个节点和后一个节点，遍历时候改为向前的指针，时间复杂度O(N)
 func ReverseList(head *ListNode) *ListNode {
+	var prev *ListNode
+	curr := head
+	for curr != nil {
+		next := curr.Next
+		curr.Next = prev
+		prev = curr
+		curr = next
+	}
+	return prev
+}
+
+// ReverseList2 递归法
+func ReverseList2(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	newHead := ReverseList2(head.Next)
+	head.Next.Next = head
+	head.Next = nil
+	return newHead
+}
+
+// ReverseList3 头插法插入新链表
+func ReverseList3(head *ListNode) *ListNode {
+	var newHead *ListNode
+	for head != nil {
+		newNode := &ListNode{Val: head.Val}
+		newNode.Next = newHead
+		newHead = newNode
+		head = head.Next
+	}
+	return newHead
+}
+
+// ReverseList4 遍历一遍节点存下来，重建链表
+func ReverseList4(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
 	}
@@ -28,4 +64,17 @@ func ReverseList(head *ListNode) *ListNode {
 	}
 
 	return newHead
+}
+
+func ReverseList5(head *ListNode) *ListNode {
+	var prev *ListNode
+	curr := head
+	for curr != nil {
+		next := curr.Next
+		curr.Next = prev
+		prev = curr
+		curr = next
+	}
+
+	return prev
 }

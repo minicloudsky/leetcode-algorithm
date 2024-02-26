@@ -81,3 +81,18 @@ func DeleteLinkedList(head *ListNode, position int) (*ListNode, error) {
 	current = nil
 	return head, nil
 }
+
+func BuildLinkedList2(nums []int) *ListNode {
+	if len(nums) == 0 {
+		return nil
+	}
+	head := &ListNode{Val: nums[0]}
+	curr := head
+	for _, val := range nums[1:] {
+		node := &ListNode{Val: val}
+		curr.Next = node
+		curr = curr.Next
+	}
+
+	return head
+}

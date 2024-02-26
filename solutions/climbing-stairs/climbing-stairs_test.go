@@ -1,5 +1,10 @@
 package climbing_stairs
 
+import (
+	"fmt"
+	"testing"
+)
+
 /***
 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
 
@@ -32,27 +37,14 @@ package climbing_stairs
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
-// ClimbStairs 先把所有值算出来，直接返回
-func ClimbStairs(n int) int {
-	climbMap := make(map[int]int)
-	climbMap[1] = 1
-	climbMap[2] = 2
-	for i := 3; i < 50; i++ {
-		climbMap[i] = climbMap[i-1] + climbMap[i-2]
-	}
-
-	return climbMap[n]
+func TestClimbStairs(t *testing.T) {
+	n := 10
+	res := ClimbStairs(n)
+	fmt.Println(res)
 }
 
-// ClimbStairs2 滚动数组
-// 0 0 1 1 2
-// p q r
-func ClimbStairs2(n int) int {
-	p, q, r := 0, 0, 1
-	for i := 1; i <= n; i++ {
-		p = q
-		q = r
-		r = p + q
-	}
-	return r
+func TestClimbStairs2(t *testing.T) {
+	n := 30
+	res := ClimbStairs2(n)
+	fmt.Println(res)
 }

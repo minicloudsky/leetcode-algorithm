@@ -1,2 +1,2 @@
 # leetcode-algorithm
-刷题
+leetcode 算法和数据结构相关的题

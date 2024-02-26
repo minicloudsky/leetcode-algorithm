@@ -44,3 +44,15 @@ func twoSum(nums []int, target int) []int {
 	}
 	return nil
 }
+
+// hashtable 记录 x + y =  target,当前是 x, 从 hashtable 里面查有没有 y
+func twoSum2(nums []int, target int) []int {
+	hashTable := make(map[int]int)
+	for i, val := range nums {
+		if v, ok := hashTable[target-val]; ok {
+			return []int{i, v}
+		}
+		hashTable[val] = i
+	}
+	return nil
+}

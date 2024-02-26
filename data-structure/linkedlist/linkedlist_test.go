@@ -11,13 +11,6 @@ func TestLinkedList(t *testing.T) {
 	fmt.Println(list)
 }
 
-func TestReverseList(t *testing.T) {
-	vals := []int{6, 7, 8, 9, 10}
-	list := BuildLinkedList(vals)
-	reversedList := ReverseList(list)
-	fmt.Println(reversedList)
-}
-
 func TestInsertLinkedList(t *testing.T) {
 	vals := []int{1, 2, 3, 4, 5}
 	list := BuildLinkedList(vals)

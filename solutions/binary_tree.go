@@ -1,4 +1,4 @@
-package binary_tree
+package solutions
 
 import "fmt"
 
@@ -57,30 +57,4 @@ func printBinaryTree(root *TreeNode, n int) {
 
 	// 参数n控制输出值数量, 否则二叉树最后一层叶子节点的孩子节点也会被打印(但是这些孩子节点是不存在的).
 	fmt.Println(result[:n])
-}
-
-func preOrder(root *TreeNode) {
-	if root == nil {
-		return
-	}
-	fmt.Println(root.Val)
-	preOrder(root.Left)
-	preOrder(root.Right)
-}
-func inOrder(root *TreeNode) {
-	if root == nil {
-		return
-	}
-	inOrder(root.Left)
-	fmt.Println(root.Val)
-	inOrder(root.Right)
-}
-
-func postOrder(root *TreeNode) {
-	if root == nil {
-		return
-	}
-	postOrder(root.Left)
-	postOrder(root.Right)
-	fmt.Println(root.Val)
 }
